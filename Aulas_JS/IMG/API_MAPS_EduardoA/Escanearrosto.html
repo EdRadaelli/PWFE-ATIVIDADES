@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Avalon E-books | Escanear Rosto</title>
+        <link rel="shortcut icon" href="imagens/avalon e-books.ico" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="Escanearrosto.css">
+    </head>
+    <body>
+    <a href="Home.html"><img src="imagens/logo4.png" id="logo4"></a>
+    <div class="entrar">
+        <a href="Entrar.html"><button>ENTRAR</button></a>
+    </div>
+    <h1>Escanear Rosto do Assinante</h1>
+    <div class="linha">
+        <button onclick="startCamera()" id="camera">ABRIR CÂMERA</button>
+        <button onclick="stopCamera()" id="camera1">FECHAR CÂMERA</button>
+    </div>
+    <video id="videoElement" autoplay></video>
+    <div class="center">
+        <a href="Entrar.html"><button id="assinar">ASSINAR</button></a>
+    </div>  
+    <script>
+        let videoStream;
+
+        async function startCamera(){
+            const videoElement = document.getElementById("videoElement");
+            try{
+                videoStream = await navigator.mediaDevices.getUserMedia({video : true});
+                videoElement.srcObject = videoStream;
+            }catch(error){
+                console.error("Erro ao abrir a camera!", erro);
+                alert("Erro ao abrir a camera!");
+            }
+        }
+
+        async function stopCamera(){
+            const videoElement = document.getElementById("videoElement");
+            if(videoStream){
+                const tracks = videoStream.getTracks();
+                tracks.forEach(tracks => track.stop());
+                    videoElement.srcObject = null;
+            }
+        }
+    </script>
+
+    <div class="footer">
+        <div id="column">
+            <img src="imagens/logo4.png" class="logo4">
+            <div id="row">
+                <a href="Contato.html"><h2 id="footer">Contato</h2></a>
+                <a href="Home.html"><h2 id="footer">Home</h2></a>
+                <a href="#"><h2 id="footer">Sobre nós</h2></a>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

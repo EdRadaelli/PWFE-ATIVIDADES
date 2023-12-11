@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>API Drag e Drop Exercício 2</title>
+        <style>
+            /*CSS*/
+            body{ 
+                background-color: gray;
+            }
+
+            h1{
+                margin-top: 50px;
+                font-size: 25px;
+                font-family: arial;
+                text-align: center;
+            }
+
+            #poster1, #poster2, #poster3{
+                width: 200px;
+                height: 300px;
+                border: 1px solid black;
+                margin-left: 30px;
+            }
+
+            .container{
+                display:flex;
+                flex-direction: row;
+                margin-left: 390px;
+                margin-top: 150px;
+            }
+
+            h3{
+                font-family: arial;
+                font-size: 16px;
+                margin-left: 70px;
+            }
+
+            .nomeContainer{
+                display:flex;
+                flex-direction: row;
+                margin-left: 350px;
+                margin-top: 20px;
+            }
+
+            #imagem1, #imagem2, #imagem3{
+                width: 200px;
+                height: 300px;
+            }
+
+            .imagemContainer{
+                margin-left: 400px;
+            }
+        </style>
+        <script>
+            //allow (permite) o Drop
+            function allowDrop(evento){
+                evento.preventDefault(); //previne o comportamento padrão de um evento
+            }
+            //Drag: arrasta
+            function drag(evento){
+                evento.dataTransfer.setData("text", evento.target.id) //recupera os dados de arrastar para o tipo especificado (string)
+            }
+            //Drop: solta
+            function drop(evento) {
+                evento.preventDefault(); //previne o comportamento padrão de um evento
+                let data = evento.dataTransfer.getData("text"); //recupera os dados de arrastar para o tipo especificado (string)
+                evento.target.appendChild(document.getElementById(data)); //adiciona um nó ao final da lista de filhos de um nó pai especificado
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Posicione os posteres de acordo com o nome do filme</h1>
+        <!--Bordas-->
+        <div class="container">
+            <div id="poster1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="poster2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="poster3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </div>
+        <!--Nome dos Filmes-->
+        <div class="nomeContainer">
+            <h3>Cidadão Kane (1941)</h3>
+            <h3>A História Sem Fim (1984)</h3>
+            <h3>Indiana Jones (1981)</h3>
+        </div>
+        <!--Poster dos filmes-->
+        <div class="imagensContainer">
+            <img src="IMG/ahistoriasemfim.jpg" id="imagem1" draggable="true" ondragstart="drag(event)">
+            <img src="IMG/indianajones.jpg" id="imagem2" draggable="true" ondragstart="drag(event)">
+            <img src="IMG/cidadaokane.webp" id="imagem3" draggable="true" ondragstart="drag(event)">
+        </div>
+    </body>
+</html>

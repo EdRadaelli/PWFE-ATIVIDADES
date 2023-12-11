@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Avalon E-books | Localização da Sede</title>
+        <link rel="shortcut icon" href="imagens/avalon e-books.ico" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="SedeLocalizacao.css">
+        <style>
+            #map{
+                height: 400px;
+                width: 1424px;
+                margin-left: 40px;
+                margin-top: 60px;
+            }
+        </style>
+    </head>
+    <body>
+    <a href="Home.html"><img src="imagens/logo4.png" id="logo4"></a>
+    <div class="entrar">
+        <a href="Entrar.html"><button>ENTRAR</button></a>
+    </div>
+    <div class="caixa">
+        <h1>Localização da Sede</h1>
+        <div id="map"></div>
+        <button onclick="getLocation()" class="botaosede">ENCONTRAR LOCALIZAÇÃO</button>
+        <div id="coluna">
+            <p>LATITUDE: <span id="latitude"></span></p>
+            <p class="longitude">LONGITUDE: <span id="longitude"></span></p>
+        </div>
+        <script>
+            let map;
+            function initMap(latitude, longitude){
+                if(!isNaN(parseFloat(latitude)) && !isNaN(parseFloat(longitude))){
+                    map = new google.maps.Map(document.getElementById("map"),{
+                        center: {lat: parseFloat(latitude), lng: parseFloat(longitude)},
+                        zoom: 12
+                    });
+                    new google.maps.Marker({
+                        position: {lat: parseFloat(latitude), lng: parseFloat(longitude)},
+                        map: map,
+                        title: 'sua localização'
+                    });
+                }else{
+                    alert("Coordenadas inválidas!");
+                }
+            }
+
+            function getLocation(){
+                if(navigator.geolocation){
+                    navigator.geolocation.getCurrentPosition(showPosition, showError);
+                }else{
+                    alert("Geolocalização não é suportada por este navegador.");
+                }
+            }
+
+            function showPosition(position){
+                const latitudeElement = document.getElementById("latitude");
+                const longitudeElement = document.getElementById("longitude");
+
+                latitudeElement.innerText = position.coords.latitude;
+                longitudeElement.innerText = position.coords.longitude;
+
+                initMap(position.coords.latitude, position.coords.longitude);
+            }
+
+            function showError(error){
+                switch(error.code){
+                    case error.PERMISSION_DENIED:
+                        alert("Permissão para geolocalização foi negada pelo usuário.");
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        alert("Informações de localização indisponíveis.");
+                        break;
+                    case error.TIMEOUT:
+                        alert("Tempo limite esgotado ao tentar obter a localização.");
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        alert("Ocorreu um erro desconhecido ao tentar obter a localização.");
+                        break;
+                }
+            }
+        </script>
+
+        <!--API do Google Maps-->
+        <script async  defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz_ksNDg413eBB3ax9yKkayM9ZbTkVYI4&callback=initMap"></script>
+
+        <div class="footer">
+            <div id="column">
+                <img src="imagens/logo4.png" class="logo4">
+                <div id="row">
+                    <a href="Contato.html"><h3 id="footer">Contato</h3></a>
+                    <a href="Home.html"><h3 id="footer">Home</h3></a>
+                    <a href="Sobrenos.html"><h3 id="footer">Sobre nós</h3></a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

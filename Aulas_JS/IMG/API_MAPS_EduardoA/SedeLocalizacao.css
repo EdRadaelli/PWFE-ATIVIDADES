@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+@import url('https://fonts.cdnfonts.com/css/arial-2');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+body{
+    background-color:#08131b;
+}
+.entrar{
+    margin-left: 1370px;
+    margin-top: -35px;
+    position: fixed;
+}
+.entrar button{
+    width: 108px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 4px;
+    font-family: Roboto;
+    background-color: rgba(0, 0, 0, 0.679);
+    color: #fff;
+    border: solid 1px #fff;
+    letter-spacing: 1px;
+    cursor: pointer;
+    z-index: 1;
+}
+h1{
+    font-family: sans-serif;
+    font-size: 32px;
+    font-weight:bold;
+    color:white;
+    text-align: center;
+    margin-top: 30px;
+}
+a{
+    text-decoration: none;
+}
+.entrar button:hover{
+    color: #000;
+    background-color: #f9f9f9;
+}
+#logo4{
+    width: 210px;
+    height: 50px;
+    margin-top: 5px;
+    margin-left: 10px;
+    padding: -20px;
+}
+.footer{
+    background-color: #087876;
+    margin-top: 90px;
+    width: 1519px;
+    height: 160px;
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -8px;
+    margin-top: -152px;
+}
+.logo4{
+    width: 270px;
+    height: 65px;
+}
+#footer{
+    font-family:'Gilroy-Regular', sans-serif;
+    font-size: 16px;
+    font-weight: 100;
+    cursor: pointer;
+    color: white;
+}
+#footer:hover{
+    border-bottom: solid 1px white;
+}
+#column{
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0px;
+    margin-top: 8px;
+}
+#row{
+    display: flex;
+    flex-direction: row;
+    gap: 0px 25px;
+    margin-left: 15px;
+}
+.botaosede{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background-color:#087876;
+    font-family: sans-serif;
+    color:white;
+    font-size: 12px;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    width: 210px;
+    height: 35px;
+    margin-top: 11px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    position:absolute;
+    z-index: 1;
+    margin-top: -400px;
+    margin-left: 40px;
+}
+.botaosede:hover{
+    color: #087876;
+    background-color: white;
+}
+p{
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 100;
+    color:white;
+    padding: 20%;
+    text-align: center;
+    margin-left: -260px;
+    text-align: justify;
+    cursor: pointer;
+}
+#coluna{
+    display: flex;
+    flex-direction: column;
+    margin-top: -280px;
+}
+.longitude{
+    margin-top: -600px;
+}

@@ -1,0 +1,133 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>API Drag e Drop Exercício 1</title>
+        <style>
+            /*CSS*/
+            body{
+                background-color: lightgrey;
+            }
+
+            h1{
+                display: flex;
+                justify-content: center;
+                font-family: arial;
+                font-size: 25px;
+                margin-top: 30px;
+            }
+
+            #quadradoDrop{
+                margin-top: 150px;
+                width: 150px;
+                height: 150px;
+                border: 2px solid black;
+            }
+
+            #quadradoDrag{
+                width: 150px;
+                height: 150px;
+                background-color: green;
+            }
+
+            #circuloDrop{
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                border: 2px solid black;
+            }
+
+            #circuloDrag{
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                background-color: purple;
+            }
+
+            #retanguloDrop{
+                margin-top: 150px;
+                width: 220px;
+                height: 150px;
+                border: 2px solid black;
+            }
+
+            #retanguloDrag{
+                width: 220px;
+                height: 150px;
+                background-color: orange;
+            }
+
+            .coluna1{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-left: 780px;
+                margin-top: 80px;
+            }
+
+            .coluna2{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-top: 90px;
+                margin-top: -330px;
+            }
+
+            .coluna3{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-top: -400px;
+                margin-left: -800px;
+            }
+
+            .row{
+                margin-top: 130px;
+            }
+        </style>
+        <script>
+            //allow (permite) o Drop
+            function allowDrop(evento){
+                evento.preventDefault(); //previne o comportamento padrão de um evento
+            }
+            //Drag: arrasta
+            function drag(evento){
+                evento.dataTransfer.setData("text", evento.target.id) //recupera os dados de arrastar para o tipo especificado (string)
+            }
+            //Drop: solta
+            function drop(evento) {
+                evento.preventDefault(); //previne o comportamento padrão de um evento
+                let data = evento.dataTransfer.getData("text"); //recupera os dados de arrastar para o tipo especificado (string)
+                evento.target.appendChild(document.getElementById(data)); //adiciona um nó ao final da lista de filhos de um nó pai especificado
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Arraste as formas nos espaços corretos</h1>
+        <div class="row">
+            <!--Coluna 1-->
+            <div class="coluna1">
+                <!--Borda quadrado-->
+                <div id="quadradoDrop" ondrop="drop(event)" ondragover="allowDrop(event)"></div><br>
+                <!--Círculo roxo-->
+                <div id="circuloDrag" draggable="true" ondragstart="drag(event)"></div>
+            </div>
+            <!--Coluna 2-->
+            <div class="coluna2">
+                <!--Borda círculo-->
+                <div id="circuloDrop" ondrop="drop(event)" ondragover="allowDrop(event)"></div><br>
+                <!--Retângulo laranja-->
+                <div id="retanguloDrag" draggable="true" ondragstart="drag(event)">
+            </div>
+            <!--Coluna 3-->
+            <div class="coluna3">
+                <!--Borda retângulo-->
+                <div id="retanguloDrop" ondrop="drop(event)" ondragover="allowDrop(event)"></div><br>
+                <!--Quadrado verde-->
+                <div id="quadradoDrag" draggable="true" ondragstart="drag(event)">
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+body{
+    background-color:#08131b;
+}
+#logo4{
+    width: 210px;
+    height: 50px;
+    margin-top: 5px;
+    margin-left: 10px;
+    padding: -20px;
+}
+.entrar{
+    margin-left: 1370px;
+    margin-top: -35px;
+    position: fixed;
+}
+.entrar button{
+    width: 108px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 4px;
+    font-family: Roboto;
+    background-color: rgba(0, 0, 0, 0.679);
+    color: #fff;
+    border: solid 1px #fff;
+    letter-spacing: 1px;
+    cursor: pointer;
+    z-index: 1;
+}
+.entrar button:hover{
+    color: #000;
+    background-color: #f9f9f9;
+}
+.caixa{
+    height: 505px;
+    width:480px;
+    border:none;
+    background-color: none;
+    margin-top: 82px;
+    margin-left: 528px;
+}
+h1{
+    font-family: sans-serif;
+    font-size: 30px;
+    font-weight:bold;
+    color:white;
+}
+a{
+    text-decoration: none;
+}
+h3{
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 15px;
+    color:rgb(200, 200, 200);
+    margin-top:15px;
+}
+.assinaturas{
+    position: absolute;
+    z-index: 1;
+    margin-top: -22px;
+    margin-left:335px;
+}
+#text1{
+    font-family: sans-serif;
+    font-size: 40px;
+    color:white;
+    text-align: center;
+}
+#text2{
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 18px;
+    color:rgb(200, 200, 200);
+    text-align: center;
+}
+#text3{
+    font-family: sans-serif;
+    font-size: 38px;
+    color:white;
+    margin-left: 40px;
+    margin-top: 26px;
+}
+.planos{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0px 70px;
+}
+#plano{
+    background-color:#00c1cb41;
+    width:367px;
+    height: 384px;
+    padding: 1%;
+    border: solid 1px white;
+    border-radius: 4px;
+}
+.preço1{
+    display: flex;
+    flex-direction: row;
+    margin-top: -38px;
+}
+.preço2{
+    display: flex;
+    flex-direction: row;
+    margin-top: -38px;
+}
+p{
+    font-family: 'Gilroy-Regular', sans-serif;
+    color: white;
+    font-weight: 100;
+    font-size: 15px;
+    margin-top: -7px;
+    margin-left: 40px;
+}
+#lista{
+    margin-top: -12px;
+}
+h5{
+    font-family: sans-serif;
+    color: #91dced;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 15px;
+    margin-left: 40px;
+}
+h6{
+    font-family: sans-serif;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 15px;
+    margin-left: 1px;
+}
+.botaoplano{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background-color:#087876;
+    font-family: sans-serif;
+    color:white;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    width: 270px;
+    height: 58px;
+    margin-top: 41px;
+    margin-left: 40px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+.botaoplano:hover{
+    color: #087876;
+    background-color: white;
+}
+.footer{
+    background-color: #087876;
+    margin-top: 760px;
+    width: 1519px;
+    height: 160px;
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -8px;
+}
+.logo4{
+    width: 270px;
+    height: 65px;
+}
+#footer{
+    font-family:'Gilroy-Regular', sans-serif;
+    font-size: 16px;
+    font-weight: 100;
+    cursor: pointer;
+    color: white;
+}
+#footer:hover{
+    border-bottom: solid 1px white;
+}
+#column{
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0px;
+    margin-top: 8px;
+}
+#row{
+    display: flex;
+    flex-direction: row;
+    gap: 0px 25px;
+    margin-left: 15px;
+}

@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>API CEP</title>
+    </head>
+    <body>
+        <h1>Consultar CEP</h1>
+        <form method="get" action=".">
+            <label>CEP:
+                <input name="cep" type="text" id="cep" value="" size="15" maxlength="9" onblur="pesquisacep(this.value);">
+            </label>
+            <label><br>RUA:
+                <input name="rua" type="text" id="rua" value="" size="40">
+            </label>
+            <label><br>BAIRRO:
+                <input name="bairro" type="text" id="bairro" value="" size="40">
+            </label>
+            <label><br>CIDADE:
+                <input name="cidade" type="text" id="cidade" value="" size="20">
+            </label>
+            <label><br>ESTADO:
+                <input name="estado" type="text" id="estado" value="" size="2">
+            </label>
+        </form>
+
+        <script>
+            function limpa_form(){
+                document.getElementById("rua").value("");
+                document.getElementById("bairro").value("");
+                document.getElementById("cidade").value("");
+                document.getElementById("estado").value("");
+            }
+
+            function atualiza_campos(){
+                if(!("erro" in conteudo)){
+                    document.getElementById('rua').value = (conteudo.rua);
+                    document.getElementById('bairro').value = (conteudo.bairro);
+                    document.getElementById('cidade').value = (conteudo.cidade);
+                    document.getElementById('estado').value = (conteudo.estado);
+                }else{
+                    limpa_form();
+                    alert("CEP não encontrado!");
+                }
+            }
+
+            function pesquisacep(valor){
+                //variável cep recebe apenas valores decimais(inteiros)
+                let cep = valor.replace(/|D/g,'');
+                //condição de validação
+                if(cep != ""){
+                    //valida o formato do CEP
+                    let validacep = /^[0-9]{8}$/;
+                    if(validacep.test(cep)){
+                        document.getElementById('rua').value = "...";
+                        document.getElementById('bairro').value = "...";
+                        document.getElementById('cidade').value = "...";
+                        document.getElementById('estado').value = "...";
+                        //criou no(elemento)
+                        let elemento = document.createElement('script');
+                        //adicionou informação no no
+                        elemento.src = 'https://h-apigateway.conectagov.estaleiro.serpro.gov.br/api-cep/v1/consulta/cep/{cep}';
+                        //https://viacep.com.br/ws/' + cep + '/json/?callback=atualiza_campos
+                        //insere script no documento e carrega seu conteudo
+                        document.body.appendChild(elemento);
+                    }else{
+                        limpa_form();
+                        alert("Formato de CEP inválido!");
+                    }
+                }else{
+                    limpa_form();
+                }
+            }
+        </script>
+    </body>
+</html>
+    

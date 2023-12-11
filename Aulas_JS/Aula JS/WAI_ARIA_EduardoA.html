@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Lista de Produtos</title>
+    </head>
+    <body>
+        <label for="produtos">Selecione um produto:</label>
+        <select id="produtos" aria-label="selecione um produto">
+            <option value="1" id="lapis">Lápis</option>
+            <option value="2" id="borracha">Borracha</option>
+            <option value="1" id="apontador">Apontador</option>
+        </select>
+
+        <p id="descricao-produto">Descrição do Produto:<span id="descricao-produto"></span></p>
+
+        <style>
+            [arial-label]{
+                border:solid grey 2px;
+            }
+        </style>
+        <script>
+            const selectProdutos = document.getElementById("produtos");
+            const descricaoSelecionada = document.getElementById("descricao-produto");
+            selectProdutos.addEventlistener("change", () =>{
+                const produtoSelecionado = selectProdutos.value;
+                const descricao = descricaoProdutos[produtoSelecionado];
+                descricaoSelecionada.textContent = descricao;
+            });
+        </script>
+    </body>
+</html>

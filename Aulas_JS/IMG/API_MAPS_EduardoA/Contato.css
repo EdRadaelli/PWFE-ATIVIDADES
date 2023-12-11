@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+@import url('https://fonts.cdnfonts.com/css/arial-2');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+body{
+    background-color:#08131b;
+}
+.entrar{
+    margin-left: 1370px;
+    margin-top: -35px;
+    position: fixed;
+}
+.entrar button{
+    width: 108px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 4px;
+    font-family: Roboto;
+    background-color: rgba(0, 0, 0, 0.679);
+    color: #fff;
+    border: solid 1px #fff;
+    letter-spacing: 1px;
+    cursor: pointer;
+    z-index: 1;
+}
+.entrar button:hover{
+    color: #000;
+    background-color: #f9f9f9;
+}
+#logo4{
+    width: 210px;
+    height: 50px;
+    margin-top: 5px;
+    margin-left: 10px;
+    padding: -20px;
+}
+.caixa{
+    height: 505px;
+    width:480px;
+    border:none;
+    background-color: none;
+    margin-top: 110px;
+    margin-left: 528px;
+}
+h1{
+    font-family: sans-serif;
+    font-size: 35px;
+    font-weight:bold;
+    color:white;
+    margin-top: -15px;
+}
+a{
+    text-decoration: none;
+}
+p{
+    font-family: Open Sans;
+    color: white;
+    font-size: 16px;
+    font-weight:bolder;
+    margin-top: 20px;
+}
+#inicio{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 0px 200px;
+    cursor: pointer;
+}
+#button{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background-color:#03989E;
+    border: none;
+    border-radius: 30px;
+    width: 110px;
+    height: 38px;
+    margin-top: 11px;
+    cursor: pointer;
+}
+.botao{
+  margin-top: 17px;
+}
+#linha1{
+    position: center;
+    background-color: white;
+    border: none;
+    height: 3px;
+    width: 1380px;
+    margin-top: 10px;
+}
+.imageminicial2{
+    width: 490px;
+    height: 520px;
+    margin-top: -110px;
+    margin-left: 980px;
+    transform: scaleX(-1);
+}
+#formulario{
+    height: 304px;
+    width: 440px;
+    margin-left: -140px;
+    margin-top: 35px;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    gap:0px 7px;
+    width: 710px;
+}
+textarea{
+    background-color: #102635;
+    margin-top: 7px;
+    height: 100px;
+    width: 710px;
+    border: none;
+    color:#124f63;
+    border-radius: 2px;
+    font-family: arial;
+    padding-top: 2%;
+    padding-left: 2%;
+    border: 2px solid rgb(200, 200, 200);
+}
+#email{
+    margin-top: 7px;
+    height: 45px;
+    width: 710px;
+    background-color: #102635;
+    border: none;
+    color:#0d6676;
+    border-radius: 2px;
+    padding-left: 2%;
+    border: 2px solid rgb(200, 200, 200);
+}
+input:focus{
+    outline:none;
+}
+select:focus{
+    outline:none;
+}
+textarea:focus{
+    outline:none;
+}
+.nome{
+    height: 45px;
+    width: 710px;
+    background-color: #102635;
+    border: none;
+    color:#0d6676;
+    border-radius: 2px;
+    padding-left: 2%;
+    border: 2px solid rgb(200, 200, 200);
+}
+
+#assunto{
+    margin-top: 7px;
+    height: 45px;
+    width: 710px;
+    padding-left: 1%;
+    background-color: #102635;
+    border: none;
+    color:#087876;
+    border-radius: 2px;
+    padding-left: 2%;
+    border: 2px solid rgb(200, 200, 200);
+}
+select{
+    background-color: #102635;
+    height: 45px;
+    border: none;
+    color:#087876;
+    border-radius: 2px;
+    padding-left: 1%;
+    border: 2px solid rgb(200, 200, 200);
+}
+input::placeholder{
+    color:#087876;
+}
+textarea::placeholder{
+    color:#087876;
+    font-family: arial;
+    margin-top: 1px;
+}
+#enviar{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background-color:#087876;
+    font-family: sans-serif;
+    color:white;
+    font-size: 17px;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    width: 710px;
+    height: 50px;
+    margin-top: 40px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+#enviar:hover{
+    color: #087876;
+    background-color: white;
+}
+.footer{
+    background-color: #087876;
+    margin-top: 560px;
+    width: 1520px;
+    height: 160px;
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -537px;
+}
+.logo4{
+    width: 270px;
+    height: 65px;
+}
+#footer{
+    font-family:'Gilroy-Regular', sans-serif;
+    font-size: 16px;
+    font-weight: 100;
+    cursor: pointer;
+    color: white;
+}
+#footer:hover{
+    border-bottom: solid 1px white;
+}
+#linha8{
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0px;
+    margin-top: 8px;
+}
+#linha9{
+    display: flex;
+    flex-direction: row;
+    gap: 0px 25px;
+    margin-left: 15px;
+}

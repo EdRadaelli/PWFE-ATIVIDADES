@@ -1,0 +1,146 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>locasStorage</title>
+    </head>
+    <body>
+        <h2>Adicionar Produtos na Lista</h2>
+
+        <!--Nome do Produto-->
+        <label for="nome-produto">Nome do Produto</label>
+        <input type="text" id="nome-produto" name="nome-produto"><br>
+
+        <!--Preço do Produto-->
+        <label for="preco-produto">Preço Produto</label>
+        <input type="number" id="preco-produto" name="preco-produto"><br>
+
+        <!--Adicionar Produto (botão)-->
+        <button onclick="adicionaProduto()">ADD Produto</button>
+
+        <!--Lista de Produtos-->
+        <h2>Lista de Produtos</h2>
+        <ul id="lista-produtos">
+            <!--Os itens da lista serão postos aqui-->
+        </ul>
+
+        <!--Editar Campos-->
+        <h2>Editar dados da Lista</h2>
+
+        <!--Editar Nome do Produto-->
+        <label for="editar-nome-produto">Nome Produto</label>
+        <input type="text" id="editar-nome-produto" name="editar-nome-produto"><br>
+
+        <!--Editar Preço do Produto-->
+        <label for="editar-preco-produto">Preço Produto</label>
+        <input type="number" id="editar-preco-produto" name="editar-preco-produto"><br>
+
+        <!--Atualizar as informações do produto (botão)-->
+        <button onclick="atualizarProduto()">Atualizar Produtos</button>
+
+        <!--Excluir Produtos-->
+        <h2>Excluir dados da Lista</h2>
+        <select id="excluir-produto">
+
+        </select>
+
+        <!--Excluindo os produtos da lista (botão)-->
+        <button onclick="excluirProduto()">Excluir produtos--</button>
+
+        <script>
+            function obterListaProduto(){
+                return JSON.parse(localStorage.getItem('produtos')) || [];
+                //JSON vai receber todos os dados informados no input
+                //parse -> converte e transforma os dados em String
+            }
+
+            function salvarListaProdutos(lista){
+                localStorage.setItem('produtos', JSON.stringify(lista));
+            }
+
+            let listaProdutos = obterListaProduto();
+
+            function adicionaProduto(){
+                const nome = document.getElementById('nome-produto').value;
+                const preco = parseFloat(document.getElementById('preco-produto').value);
+                if(nome && preco){
+                    listaProdutos.push({nome, preco});
+                    salvarListaProdutos(listaProdutos);
+                    atualizarListaProduto();
+                    limparCampos();
+                }
+            }
+
+            //funcao atualizar
+            function atualizarListaProduto(){
+                const lista = document.getElementById("lista-produtos");
+                lista.innerHTML = '';
+                listaProdutos.forEach((produto,index) =>{
+                const li = document.createElement('li');
+                li.textContent = `${produto.nome} - R$ ${produto.preco.toFixed(2)}`;
+
+                //add botao p/ edicao de valores
+                const botaoEditar = document.createElement('button');
+                botaoEditar.textContent = 'Editar Dados';
+                botaoEditar.onclick = () => preencherFormularioEditar(index);
+                li.appendChild(botaoEditar);
+                lista.appendChild(li);
+                });
+                atualizarListaExclusao();
+            }
+            //formulario editar
+            function preencherFormularioEditar(index){
+                const produto = listaProdutos[index];
+                document.getElementById("editar-nome-produto").value = produto.nome;
+
+                document.getElementById("editar-preco-produto").value = produto.preco;
+            }
+            //funcao atualizar
+            function atualizarListaExclusao(){
+                const selectExcluir = document.getElementById("excluir-produto");
+                selectExcluir.innerHTML = '';
+                listaProdutos.forEach((produto,index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = produto.nome;
+                selectExcluir.appendChild(option);
+                });
+            }
+            //atualizar Produto
+            function atualizarProduto(){
+                const index = document.getElementById("excluir-produto").value;
+                const nome = document.getElementById("editar-nome-produto").value;
+                const preco = parseFloat(document.getElementById("editar-preco-produto").value);
+
+                if(index !== '' && nome && preco){
+                    listaProdutos[index] = {nome, preco};
+                    salvarListaProdutos(listaProdutos);
+                    atualizarListaProduto();
+                    limparFormularioEditar();
+                }
+            }
+            //limpar campos
+            function limparCampos(){
+                document.getElementById("nome-produto").value = "";
+                document.getElementById("preco-produto").value = "";
+            }
+            //limpa form
+            function limparFormularioEditar(){
+                document.getElementById("editar-nome-produto").value = "";
+                document.getElementById("editar-preco-produto").value = "";
+            }
+            //funcao excluir
+            function excluirProduto(){
+                const index = document.getElementById("excluir-produto").value;
+                if(index !== ''){
+                    listaProdutos.splice(index,1);
+                    salvarListaProdutos(listaProdutos);
+                    atualizarListaProduto();
+                }
+            }
+            //atualiza o browser p/ o usuario
+            window.onload = function(){
+                atualizarProduto();
+            };
+        </script>
+    </body>
+</html>

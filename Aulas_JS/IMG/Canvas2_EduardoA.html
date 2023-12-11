@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Canvas 2</title>
+    </head>
+    <body>
+        <canvas id="meuCanvas" width="1000" height="700"></canvas>
+
+        <script>
+            let canvas = document.getElementById("meuCanvas");
+            let ctx = canvas.getContext("2d");
+            let x = canvas.width / 2;
+            let y = canvas.height / 2;
+            let raio = 50;
+            let velX = 0;
+            let velY = 2;
+
+            function circulo(){
+                //limpar o canvas
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = "green";
+                ctx.beginPath();
+                ctx.arc(x, y, raio, 0, Math.PI * 2);
+                //preenche o interior do circulo
+                ctx.fill();
+                //andando na tela
+                x += velX;
+                y += velY;
+                //inverter direção
+                if(x + raio > canvas.width || x - raio < 0){
+                    velX =- velX;
+                }
+                if(y + raio > canvas.width || y - raio < 0){
+                    velY =- velY;
+                }
+                requestAnimationFrame(circulo);
+            }
+            circulo();
+        </script>
+    </body>
+</html>

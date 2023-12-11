@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Exercício 2</title>
+        <link rel="stylesheet" type="text/css" href="CSS/style1.css">
+    </head>
+    <body onload="loadFunction()" onunload="onunloadFunction()">
+        NOME: <input type="text" id="myInput" onblur="blurFunction()">
+        <p>Modificar o texto</p>
+        <br>
+        Entre com o texto: <input type="text" name="txt" value="OI" onchange="myFunction(this.value)">
+        <br>
+        <p id="myP" onmousedown="mouseDown()" onmouseup="mouseUp()">
+            Ao pressionar o mouse sobre esse texto,
+            o valor da propriedade da cor vai ser alterada.</p>
+        <br>
+        <div onmouseover="cordenadasFigura(event)" onmouseout="clearCoor()">
+            <img class="imagem" src="IMG/ahsoka.jpg">
+        </div>
+        <p id="demo3"></p>
+        <br>
+        <script src="JS/script2.js"></script>
+    </body>
+</html>
